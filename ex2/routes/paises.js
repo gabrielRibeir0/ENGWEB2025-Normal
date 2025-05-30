@@ -11,7 +11,7 @@ router.get('/:pais', async function(req, res) {
     const edicoes = edicoesRes.data;
 
     // Vai buscar todas as músicas (interpretações)
-    const musicasRes = await axios.get('http://localhost:25000/interpretacoes');
+    const musicasRes = await axios.get('http://localhost:25000/musicas');
     const todasMusicas = musicasRes.data;
 
     // Participações do país
