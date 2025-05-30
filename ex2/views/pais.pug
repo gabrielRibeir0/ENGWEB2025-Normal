@@ -20,7 +20,7 @@ block content
           each m in participacoes
             tr
               td 
-                a.w3-text-blue(href=`/edicoes/${m.id_edicao}`) #{m.id_edicao}
+                a.w3-text-blue(href=`/${m.id_edicao}`) #{m.id_edicao}
               td #{m.anoEdicao}
               td #{m.titulo}
               td #{m.interprete}
@@ -39,7 +39,7 @@ block content
           each o in organizacoes
             tr
               td 
-                a.w3-text-blue(href=`/edicoes/${o._id}`) #{o._id}
+                a.w3-text-blue(href=`/${o.id}`) #{o.id}
               td #{o.anoEdicao}
     else
       p.w3-text-grey Nenhuma edição organizada por este país.
