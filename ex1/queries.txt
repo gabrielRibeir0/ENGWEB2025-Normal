@@ -1,0 +1,22 @@
+1.
+db.edicoes.countDocuments()
+65 edições
+
+db.musicas.countDocuments()
+1598 músicas
+
+Totalizando 1663 registos na base de dados.
+
+2.
+db.edicoes.countDocuments({ vencedor: "Ireland" })
+7 edições
+
+3.
+db.musicas.distinct("interprete").sort()
+
+4.
+db.musicas.aggregate([{ $group: { _id: "$id_edicao", total: { $sum: 1 } } }])
+
+
+5.
+db.edicoes.aggregate([{ $match: { vencedor: { $ne: "" } } }, { $group: { _id: "$vencedor", total: { $sum: 1 } } }])
