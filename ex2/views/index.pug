@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  // Cabeçalho
+  header.w3-container.w3-blue.w3-padding
+    h1.w3-center Eurovision Song Contest Database
+    p.w3-center Competition history from 1956 to 2020
+    p.w3-center Total de edições: #{edicoes.length}
+  
+  // Conteúdo principal
+  main.w3-container.w3-margin-top
+    
+    // Tabela de edições
+    .w3-responsive
+      table.w3-table-all.w3-hoverable.w3-card-4
+        thead
+          tr.w3-blue
+            th ID Edição
+            th Ano
+            th País Organizador
+            th País Vencedor
+        
+        tbody
+          each edicao in edicoes
+            tr
+              td
+                a.w3-text-blue(href=`/${edicao._id}`) #{edicao._id}
+              td #{edicao.anoEdicao}
+              td
+                if edicao.organizacao
+                  a.w3-text-blue(href=`/paises/${edicao.organizacao}`) #{edicao.organizacao.replace('_', ' ')}
+                else
+                  | -
+              td
+                if edicao.vencedor && edicao.vencedor !== ""
+                  a.w3-text-blue(href=`/paises/${edicao.vencedor}`) #{edicao.vencedor.replace('_', ' ')}
+                else
+                  | -
+  
+  // Rodapé
+  footer.w3-container.w3-blue.w3-margin-top.w3-padding
+    p.w3-center Eurovision Database - Engenharia Web 2025

@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  header.w3-container.w3-blue.w3-padding
+    h2.w3-center Detalhes do País: #{pais}
+
+  main.w3-container.w3-margin-top
+
+    h3 Participações do país
+    if participacoes.length > 0
+      table.w3-table-all.w3-hoverable.w3-card-4
+        thead
+          tr.w3-light-grey
+            th ID Edição
+            th Ano
+            th Música
+            th Intérprete
+            th Vencedor?
+        tbody
+          each m in participacoes
+            tr
+              td 
+                a.w3-text-blue(href=`/edicoes/${m.id_edicao}`) #{m.id_edicao}
+              td #{m.anoEdicao}
+              td #{m.titulo}
+              td #{m.interprete}
+              td #{m.vencedor ? 'Sim' : 'Não'}
+    else
+      p.w3-text-grey Sem participações encontradas.
+
+    h3.w3-margin-top Edições organizadas
+    if organizacoes.length > 0
+      table.w3-table-all.w3-hoverable.w3-card-4
+        thead
+          tr.w3-light-grey
+            th ID Edição
+            th Ano
+        tbody
+          each o in organizacoes
+            tr
+              td 
+                a.w3-text-blue(href=`/edicoes/${o._id}`) #{o._id}
+              td #{o.anoEdicao}
+    else
+      p.w3-text-grey Nenhuma edição organizada por este país.
+
+    a.w3-button.w3-blue.w3-margin-top(href='/') ⬅ Voltar à Página Principal

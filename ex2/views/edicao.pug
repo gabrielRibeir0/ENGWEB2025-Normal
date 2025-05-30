@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  header.w3-container.w3-blue.w3-padding
+    h2.w3-center Detalhes da Edição #{edicao._id}
+
+  main.w3-container.w3-margin-top
+    ul.w3-ul.w3-card-4
+      li
+        strong ID da Edição: 
+        | #{edicao._id}
+      li
+        strong Ano da Edição: 
+        | #{edicao.anoEdicao}
+      li
+        strong País Organizador: 
+        a.w3-text-blue(href=`/paises/${edicao.organizacao}`) #{edicao.organizacao}
+      li
+        strong País Vencedor: 
+        a.w3-text-blue(href=`/paises/${edicao.vencedor}`) #{edicao.vencedor}
+
+    h3.w3-margin-top Músicas da Edição
+
+    table.w3-table-all.w3-hoverable.w3-card-4
+      thead
+        tr.w3-light-grey
+          th Título
+          th Intérprete
+          th País
+
+      tbody
+        each musica in musicas
+          tr
+            td #{musica.titulo}
+            td #{musica.interprete}
+            td #{musica.pais}
+
+    a.w3-button.w3-blue.w3-margin-top(href='/') ⬅ Voltar à Página Principal
