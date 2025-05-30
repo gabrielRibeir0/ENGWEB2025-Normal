@@ -1,20 +1,3 @@
-ver antes:
-
-
-o que for tratado no script
-
-ver nomes de ficheiros (routes, modelos e controllers)
-
-queries
-
-copiar rotas
-
-ver portas
-
-ver nome dataset
-
-ver se foi preciso o docker compose
-
 # ENGWEB2025-Normal
 
 Gabriel Pereira Ribeiro
